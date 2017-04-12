@@ -13,22 +13,14 @@ namespace NetNamedPipeBindingServiceHost
     {
         static void Main(string[] args)
         {
-            ServiceHost host = new ServiceHost(typeof(RemoteObject), new Uri("http://localhost:8001/Demo/"));
+            ServiceHost host = new ServiceHost(typeof(RemoteObject));
             {
-                ServiceMetadataBehavior smb = new ServiceMetadataBehavior()
-                {
-                    HttpGetEnabled = true,
-                    HttpGetUrl = new Uri("http://localhost:8001/Demo/Meta")
-                };
+                ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
                 host.Description.Behaviors.Add(smb);
 
-                //one to actually do things
-                WSHttpBinding ws = new WSHttpBinding(SecurityMode.None);
-                host.AddServiceEndpoint(typeof(IRemoteObject), ws, "http://localhost:8001/Demo/DoStuff");
-
-                //and one to provide metadata
-                Binding mex = MetadataExchangeBindings.CreateMexHttpBinding();
-                host.AddServiceEndpoint(typeof(IMetadataExchange), mex, "http://localhost:8001/Demo/Meta");
+                //provide metadata
+                Binding mex = MetadataExchangeBindings.CreateMexNamedPipeBinding();
+                host.AddServiceEndpoint(typeof(IMetadataExchange), mex, "net.pipe://localhost/Demo/Meta");
 
                 NetNamedPipeBinding pipe = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None)
                 {

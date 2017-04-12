@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="03abe1a0-7e50-43ad-a6c1-90c0a58ab7c9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="37ca9eaf-fa70-4da3-8e73-fc7eb1d49e46" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,13 +18,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8001/Demo/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="net.pipe://localhost/Demo/Meta" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Meta.xsd" MetadataType="Schema" ID="bb90d01f-7612-475b-850f-5f9faf0bc052" SourceId="1" SourceUrl="http://localhost:8001/Demo/Meta?xsd=xsd1" />
-    <MetadataFile FileName="Meta.disco" MetadataType="Disco" ID="d444a60f-c7bd-49f2-a9f2-f4ef1477b405" SourceId="1" SourceUrl="http://localhost:8001/Demo/Meta?disco" />
-    <MetadataFile FileName="Meta1.xsd" MetadataType="Schema" ID="f0626e38-6116-4ed0-a655-b2895f124c15" SourceId="1" SourceUrl="http://localhost:8001/Demo/Meta?xsd=xsd0" />
-    <MetadataFile FileName="RemoteObject.wsdl" MetadataType="Wsdl" ID="8b324e69-f7ec-4b4f-a735-744e51ee88be" SourceId="1" SourceUrl="http://localhost:8001/Demo/Meta?wsdl" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f59f3574-19c7-4d9e-ab6f-081af239f2f4" SourceId="1" SourceUrl="net.pipe://localhost/Demo/Meta" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7369f149-74dd-410a-98de-10afc141afee" SourceId="1" SourceUrl="net.pipe://localhost/Demo/Meta" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ae48e7e4-78c6-4598-ba7d-bbbc7e12e946" SourceId="1" SourceUrl="net.pipe://localhost/Demo/Meta" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
