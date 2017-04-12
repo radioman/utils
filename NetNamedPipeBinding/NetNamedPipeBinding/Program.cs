@@ -9,6 +9,7 @@ using NetNamedPipeBindingServiceContract;
 
 namespace NetNamedPipeBindingServiceHost
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     class RemoteObject : IRemoteObject
     {
         static void Main(string[] args)
@@ -41,16 +42,18 @@ namespace NetNamedPipeBindingServiceHost
             host.Close();
         }
 
+        readonly Guid Id = Guid.NewGuid();
+
         byte[] IRemoteObject.GetRBytes(int numBytes)
         {
-            Console.WriteLine($"GetRBytes({numBytes})");
+            Console.WriteLine($"GetRBytes({numBytes}): {Id}");
 
             return new byte[numBytes];
         }
 
         bool IRemoteObject.ReceiveRBytes(byte[] bytes)
         {
-            Console.WriteLine($"ReceiveRBytes({bytes.Length})");
+            Console.WriteLine($"ReceiveRBytes({bytes.Length}): {Id}");
 
             return true;
         }
