@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetNamedPipeBindingServiceHost", "NetNamedPipeBinding\NetNamedPipeBindingServiceHost.csproj", "{8CFBDE7F-2CFF-433D-8DD4-6AD6F49A259F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetNamedPipeBindingClient", "NetNamedPipeBindingClient\NetNamedPipeBindingClient.csproj", "{35FBD3D9-FA9B-4F1E-BC1F-6A5DA39F0507}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetNamedPipeBindingServiceContract", "ServiceContract\NetNamedPipeBindingServiceContract.csproj", "{B81C2BF2-8C4F-4A31-970F-ACB383FF09EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CFBDE7F-2CFF-433D-8DD4-6AD6F49A259F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CFBDE7F-2CFF-433D-8DD4-6AD6F49A259F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CFBDE7F-2CFF-433D-8DD4-6AD6F49A259F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CFBDE7F-2CFF-433D-8DD4-6AD6F49A259F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FBD3D9-FA9B-4F1E-BC1F-6A5DA39F0507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FBD3D9-FA9B-4F1E-BC1F-6A5DA39F0507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FBD3D9-FA9B-4F1E-BC1F-6A5DA39F0507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FBD3D9-FA9B-4F1E-BC1F-6A5DA39F0507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B81C2BF2-8C4F-4A31-970F-ACB383FF09EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81C2BF2-8C4F-4A31-970F-ACB383FF09EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81C2BF2-8C4F-4A31-970F-ACB383FF09EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81C2BF2-8C4F-4A31-970F-ACB383FF09EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
