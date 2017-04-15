@@ -27,27 +27,42 @@ namespace NetNamedPipeBindingClient
             binding.ReaderQuotas.MaxStringContentLength = int.MaxValue;
 
             EndpointAddress addr = new EndpointAddress("net.pipe://localhost/Demo/DoStuff");
-
-            RemoteObjectClient client = new RemoteObjectClient(binding, addr);
-            client.Open();
-
+            RemoteObjectClient client = null;
             while (true)
             {
                 try
                 {
-                    int size = 1024 * 100;
+                    if (client == null || client.State == CommunicationState.Faulted)
+                    {
+                        if (client != null)
+                        {
+                            client.Abort();
+                        }
+                        client = new RemoteObjectClient(binding, addr);
+                    }
+
+                    if (client.State != CommunicationState.Opened)
+                    {
+                        client.Open();
+                    }
+
+                    int size = 1024 * 200;
                     byte[] buffer = client.GetRBytes(size);
 
                     var stopWatch = Stopwatch.StartNew();
-                    int count = 1000;
+                    int count = 500;
                     for (int i = 0; i < count; i++)
                     {
                         client.ReceiveRBytes(buffer);
 
-                        Thread.Sleep(10);
+                        //Thread.Sleep(200);
                     }
                     stopWatch.Stop();
-                    Console.WriteLine("Time used: {0}\tPer sec: {1} - {2}", stopWatch.Elapsed, (count * size) / stopWatch.ElapsedMilliseconds, size);
+                    Console.WriteLine("Time {0}, count: {1}, {2}MB/s - buffer: {3}kb",
+                        stopWatch.Elapsed,
+                        count,
+                        ((count * size / 1024 * 1024) / stopWatch.ElapsedMilliseconds) / 1000,
+                        size/1024);
                 }
                 catch
                 {
@@ -55,7 +70,6 @@ namespace NetNamedPipeBindingClient
                 }
                 Thread.Sleep(1000);
             }
-
             client.Close();
 
             Console.ReadLine();
